@@ -4,13 +4,11 @@
 
 ### Project Description
 
-Machine Learning (Unsupervised Learning - Clustering).
-Dimensionality Reduction method - Principal Component Analysis.
-From a data set containing 64 pairs of values, program
-computes the covariance matrix and identifies 2 Principal Components.
-The program also computes the Eigenvalues and Eigenvectors associated
-with the Principal Components as well as the Total variance,
-showcasing the proportion as a percentage that the 2 Principal Components explain.
+C++ implementation of K-means clustering algorithm with
+a Euclidean distance metric. The implemented K-means algorithm
+will cluster 8 examples into 3 clusters using sample
+1, 4 and 7 as the initial centroid for each cluster and 
+output the results to a text file.
 
 ---
 
