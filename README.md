@@ -24,6 +24,8 @@ output the results to a text file.
 
 **test**: All test code files.
 
+**output**: All results from running application
+
 ---
 
 ### Makefile Instructions
@@ -38,4 +40,4 @@ output the results to a text file.
 
 ### NOTES
 
-**Results for the Principal Component Analysis will be output to the console but a text file can also be found in the bin/ directory**
+**Results for the K-Means Clustering will be output to a text file stored in the output/ directory**
