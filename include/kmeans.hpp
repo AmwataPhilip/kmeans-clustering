@@ -17,6 +17,8 @@ public:
 	~Kmean();
 
 	typedef std::vector<std::vector<int>> vecVec;
+
+	void Kmean::groupValues();
 };
 
 } // namespace AMWPHI001
