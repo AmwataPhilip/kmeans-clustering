@@ -3,9 +3,11 @@
 
 #include <cstdio>
 #include <iostream>
+#include <vector>
 
 namespace AMWPHI001
 {
+
 class Kmean
 {
 private:
@@ -13,6 +15,8 @@ private:
 public:
 	Kmean(/* args */);
 	~Kmean();
+
+	typedef std::vector<std::vector<int>> vecVec;
 };
 
 } // namespace AMWPHI001
