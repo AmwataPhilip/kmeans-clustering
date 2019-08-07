@@ -18,7 +18,10 @@ public:
 
 	typedef std::vector<std::vector<int>> vecVec;
 
-	void Kmean::setInitValues();
+	void setInitValues();
+	double square(double num);
+	double l2Distance(double x, double y);
+	vecVec kMeans(const vecVec data, size_t k, size_t iter);
 };
 
 } // namespace AMWPHI001
