@@ -32,6 +32,14 @@
 		"typeinfo": "cpp",
 		"utility": "cpp",
 		"complex": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"atomic": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"deque": "cpp",
+		"algorithm": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"string": "cpp"
 	}
 }
