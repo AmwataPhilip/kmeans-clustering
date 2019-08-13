@@ -5,9 +5,12 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
+#include <limits>
+#include <algorithm>
 
 namespace AMWPHI001
 {
+
 class Point
 {
 private:
@@ -29,16 +32,23 @@ public:
 		return this->y;
 	}
 
-	void setX(double x)
+	int getGroup()
 	{
-		this->x = x;
+		return this->group;
 	}
 
-	void setY(double y)
+	void setX(double newX)
 	{
-		this->y = y;
+		this->x = newX;
+	}
+
+	void setY(double newY)
+	{
+		this->y = newY;
 	}
 };
+
+typedef std::vector<std::vector<Point>> clusVec;
 
 class Kmean
 {
@@ -52,7 +62,7 @@ public:
 	~Kmean() = default;
 
 	double l2Distance(Point datum, Point centroid);
-	std::vector<Point> kMeans(const std::vector<Point> data, size_t k, size_t iter);
+	void runKMeans(std::vector<Point> centroidVec, clusVec clusters);
 };
 
 } // namespace AMWPHI001
