@@ -70,3 +70,5 @@ Cluster 3: 2, 7,
 Centroid: ( 1.5, 3.5 )
 
 ----------------------
+Question 1: How many iterations needed for dataset to converge?
+3

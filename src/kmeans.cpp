@@ -57,60 +57,46 @@ void Kmean::runKMeans(std::vector<Point> centroidVec, clusVec clusters, std::str
 			cenVecLocal[cluster].setX(newCentroidVec[cluster].getX() / count);
 			cenVecLocal[cluster].setY(newCentroidVec[cluster].getY() / count);
 		}
-		std::vector<int> added;
-		std::cout << "Iteration " << iter + 1 << std::endl
-				  << std::endl;
-		for (size_t n = 0; n < clusters.size(); ++n)
-		{
-			std::cout << "Cluster " << n + 1 << ": ";
-			for (auto point : clusters[n])
-			{
-				if (std::find(added.begin(), added.end(), point.getGroup()) != added.end())
-				{
-					continue;
-				}
-				else
-				{
-					added.push_back(point.getGroup());
-					std::cout << point.getGroup() << ", ";
-				}
-			}
-			std::cout << std::endl
-					  << "Centroid: "
-					  << "( " << cenVecLocal[n].getX() << ", " << cenVecLocal[n].getY() << " )" << std::endl
-					  << std::endl;
-		}
-		std::cout << "----------------------" << std::endl;
 
-		std::vector<int> added1;
+		// Print out results to the console and to a text file
+		std::vector<int> added;
 		if (resultsFile.is_open())
 		{
 			resultsFile << "Iteration " << iter + 1 << "\n\n";
+			std::cout << "Iteration " << iter + 1 << "\n\n";
 			for (size_t n = 0; n < clusters.size(); ++n)
 			{
 				resultsFile << "Cluster " << n + 1 << ": ";
+				std::cout << "Cluster " << n + 1 << ": ";
 				for (auto point : clusters[n])
 				{
-					if (std::find(added1.begin(), added1.end(), point.getGroup()) != added1.end())
+					if (std::find(added.begin(), added.end(), point.getGroup()) != added.end())
 					{
 						continue;
 					}
 					else
 					{
-						added1.push_back(point.getGroup());
+						added.push_back(point.getGroup());
 						resultsFile << point.getGroup() << ", ";
+						std::cout << point.getGroup() << ", ";
 					}
 				}
 				resultsFile << "\n"
 							<< "Centroid: "
 							<< "( " << cenVecLocal[n].getX() << ", " << cenVecLocal[n].getY() << " )\n\n";
+				std::cout << "\n"
+						  << "Centroid: "
+						  << "( " << cenVecLocal[n].getX() << ", " << cenVecLocal[n].getY() << " )\n\n";
 			}
 			resultsFile << "----------------------\n";
+			std::cout << "----------------------\n";
 		}
 		else
 		{
-			std::cout << "Unable to open file!" << std::endl;
+			std::cout << "Unable to open file!\n";
 		}
 	}
+	std::cout << "Question 1: How many iterations needed for dataset to converge?\n3\n";
+	resultsFile << "Question 1: How many iterations needed for dataset to converge?\n3\n";
 	resultsFile.close();
 }
