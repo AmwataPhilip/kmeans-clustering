@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <math.h>
 #include <limits>
@@ -62,7 +63,7 @@ public:
 	~Kmean() = default;
 
 	double l2Distance(Point datum, Point centroid);
-	void runKMeans(std::vector<Point> centroidVec, clusVec clusters);
+	void runKMeans(std::vector<Point> centroidVec, clusVec clusters, std::string fileName);
 };
 
 } // namespace AMWPHI001

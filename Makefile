@@ -32,7 +32,7 @@ tester:
 
 #run
 run:
-	./bin/kmeans
+	./bin/kmeans output/kmeansOutput.txt
 
 .PHONY:
 	clean

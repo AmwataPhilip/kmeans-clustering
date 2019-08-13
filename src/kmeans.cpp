@@ -7,8 +7,9 @@ double Kmean::l2Distance(Point datum, Point centroid)
 	return sqrt(pow(datum.getX() - centroid.getX(), 2.0) + pow(datum.getY() - centroid.getY(), 2.0));
 }
 
-void Kmean::runKMeans(std::vector<Point> centroidVec, clusVec clusters)
+void Kmean::runKMeans(std::vector<Point> centroidVec, clusVec clusters, std::string fName)
 {
+	std::ofstream resultsFile(fName);
 	std::vector<Point> curDataset = this->Dataset;
 	std::vector<Point> cenVecLocal = centroidVec;
 	std::vector<size_t> assigned(curDataset.size());
@@ -71,7 +72,7 @@ void Kmean::runKMeans(std::vector<Point> centroidVec, clusVec clusters)
 				else
 				{
 					added.push_back(point.getGroup());
-					std::cout << point.getGroup() << "  ";
+					std::cout << point.getGroup() << ", ";
 				}
 			}
 			std::cout << std::endl
@@ -80,5 +81,36 @@ void Kmean::runKMeans(std::vector<Point> centroidVec, clusVec clusters)
 					  << std::endl;
 		}
 		std::cout << "----------------------" << std::endl;
+
+		std::vector<int> added1;
+		if (resultsFile.is_open())
+		{
+			resultsFile << "Iteration " << iter + 1 << "\n\n";
+			for (size_t n = 0; n < clusters.size(); ++n)
+			{
+				resultsFile << "Cluster " << n + 1 << ": ";
+				for (auto point : clusters[n])
+				{
+					if (std::find(added1.begin(), added1.end(), point.getGroup()) != added1.end())
+					{
+						continue;
+					}
+					else
+					{
+						added1.push_back(point.getGroup());
+						resultsFile << point.getGroup() << ", ";
+					}
+				}
+				resultsFile << "\n"
+							<< "Centroid: "
+							<< "( " << cenVecLocal[n].getX() << ", " << cenVecLocal[n].getY() << " )\n\n";
+			}
+			resultsFile << "----------------------\n";
+		}
+		else
+		{
+			std::cout << "Unable to open file!" << std::endl;
+		}
 	}
+	resultsFile.close();
 }

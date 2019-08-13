@@ -11,7 +11,8 @@ int main(int argc, const char **argv)
     using namespace AMWPHI001;
 
     int clusterNum = 3;
-    int iterNum = 10;
+    int iterNum = 6;
+    std::string fName = argv[1];
 
     // Input data set
     Point one(2.0, 10.0, 1), two(2.0, 5.0, 2), three(8.0, 4.0, 3), four(5.0, 8.0, 4);
@@ -26,7 +27,7 @@ int main(int argc, const char **argv)
 
     Kmean meanK(Dataset, clusterNum, iterNum);
 
-    meanK.runKMeans(centroidVec, clusters);
+    meanK.runKMeans(centroidVec, clusters, fName);
 
     return 0;
 }
